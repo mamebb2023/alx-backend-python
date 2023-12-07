@@ -2,6 +2,6 @@
 """ Python file """
 
 
-def floor(n: float):
+def floor(n: float) -> int:
     """ Returns the floor of the float number """
     return int(n)

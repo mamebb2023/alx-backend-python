@@ -55,3 +55,29 @@ class TestGetJson(unittest.TestCase):
         main_val = get_json(test_url)
         mockGetFunc.assert_called_with(test_url)
         self.assertEqual(main_val, test_payload)
+
+
+class TestMemoize(unittest.TestCase):
+    """
+    Tests memoize decorator function
+    """
+
+    def test_memoize(self):
+        """test memoization function"""
+        class TestClass:
+            """Class for testing purposes"""
+
+            def a_method(self):
+                """test for memoization function"""
+                return 42
+
+            @memoize
+            def a_property(self):
+                """ main memoization testing function """
+                return self.a_method()
+
+        with patch.object(TestClass, "a_method", return_value=42) as method:
+            obj = TestClass()
+            self.assertEqual(obj.a_property, 42)
+            self.assertEqual(obj.a_property, 42)
+            method.assert_called_once()

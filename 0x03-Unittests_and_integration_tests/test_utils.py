@@ -24,7 +24,6 @@ class TestAccessNestedMap(unittest.TestCase):
         """
         self.assertEqual(access_nested_map(nested_map, path), expected)
 
-
     @parameterized.expand([
         ({}, ("a",)),
         ({"a": 1}, ("a" "b"))
@@ -58,22 +57,25 @@ class TestGetJson(unittest.TestCase):
 
 
 class TestMemoize(unittest.TestCase):
-    """
-    Tests memoize decorator function
+    """ Tests memoize decorator function
     """
 
     def test_memoize(self):
-        """test memoization function"""
+        """ Test memoization function
+        """
         class TestClass:
-            """Class for testing purposes"""
+            """ Class for testing purposes
+            """
 
             def a_method(self):
-                """test for memoization function"""
+                """ Test for memoization function
+                """
                 return 42
 
             @memoize
             def a_property(self):
-                """ main memoization testing function """
+                """ Main memoization testing function
+                """
                 return self.a_method()
 
         with patch.object(TestClass, "a_method", return_value=42) as method:

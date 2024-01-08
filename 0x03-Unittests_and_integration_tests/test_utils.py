@@ -63,6 +63,7 @@ class TestMemoize(unittest.TestCase):
     def test_memoize(self):
         """ Test memoization function
         """
+
         class TestClass:
             """ Class for testing purposes
             """
